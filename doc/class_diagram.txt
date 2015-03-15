@@ -1,0 +1,35 @@
+@startuml
+class Player {
+}
+class Board {
+}
+class Piece {
++ Piece(Moveable)
+}
+
+class Square {
++ pieces() : []Piece
++ validMoves() : []Square
+}
+
+interface Moveable {
++ isValidMove(Board, Square) : bool
++ allValidMoves(Board) : []Square
+}
+
+class KnightMove *-- Moveable
+class RookMove *-- Moveable
+class KingMove *-- Moveable
+class QueenMove *-- Moveable
+class BishopMove *-- Moveable
+
+interface Drawable {
++ draw()
+}
+class KnightDraw *-- Drawable
+class RookDraw *-- Drawable
+class KingDraw *-- Drawable
+class QueenDraw *-- Drawable
+class BishopDraw *-- Drawable
+class BoardDraw *-- Drawable
+@enduml
