@@ -1,7 +1,14 @@
 @startuml
-class Player {
+class Game {
+- CurrentTurn : player
 }
+
+class Player {
+- score : int
+}
+
 class Board {
++ addPiece(Piece, Square)
 }
 class Piece {
 + Piece(Moveable)
@@ -16,20 +23,20 @@ interface Moveable {
 + isValidMove(Board, Square) : bool
 + allValidMoves(Board) : []Square
 }
-
-class KnightMove *-- Moveable
-class RookMove *-- Moveable
-class KingMove *-- Moveable
-class QueenMove *-- Moveable
-class BishopMove *-- Moveable
+class KnightMove ..|> Moveable
+class RookMove ..|> Moveable
+class KingMove ..|> Moveable
+class QueenMove ..|> Moveable
+class BishopMove ..|> Moveable
 
 interface Drawable {
 + draw()
 }
-class KnightDraw *-- Drawable
-class RookDraw *-- Drawable
-class KingDraw *-- Drawable
-class QueenDraw *-- Drawable
-class BishopDraw *-- Drawable
-class BoardDraw *-- Drawable
+class KnightDraw ..|> Drawable
+class RookDraw ..|> Drawable
+class KingDraw ..|> Drawable
+class QueenDraw ..|> Drawable
+class BishopDraw ..|> Drawable
+class BoardDraw ..|> Drawable
+class SquareDraw ..|> Drawable
 @enduml
